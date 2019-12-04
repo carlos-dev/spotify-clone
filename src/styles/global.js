@@ -1,6 +1,6 @@
 import { createGlobalStyle  } from 'styled-components';
 
-createGlobalStyle `
+ const GlobalStyle = createGlobalStyle`
   * {
     margin: 0;
     padding: 0;
@@ -8,15 +8,17 @@ createGlobalStyle `
     outline: 0
   }
 
-  html, body, root {
+  html, body, #root {
     height: 100%
   }
 
-  body: {
+  body {
     text-rendering: optimizeLegibility !important;
-    -webkit-font-rendering: antialiased !important;
+    -webkit-font-smoothing: antialiased !important;
     background: #181818;
-    font-family: 'Montserrat', 'sans-serif';
+    font-family: 'Montserrat', sans-serif;
     color: #fff;
   }
 `;
+
+export default GlobalStyle;

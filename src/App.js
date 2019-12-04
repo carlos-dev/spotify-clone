@@ -1,11 +1,15 @@
 import React from 'react';
 
-import './styles/global';
+import GlobalStyle from './styles/global';
+
+import Sidebar from './components/sidebar'
+
 
 const App = () => (
   <div>
-    <h1>hello</h1>
-  </div>
+    <GlobalStyle />
+    <Sidebar />
+   </div>
 )
 
 export default App;
