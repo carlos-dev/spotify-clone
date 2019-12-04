@@ -28,7 +28,7 @@ export const Nav = styled.nav`
       text-decoration: none;
       font-size: 13px;
       line-height: 32px;
-      font-weight: ${props => props.weightBold ? 'bold' : 'normal'}
+      font-weight: ${props => props.weightBold ? 'bold' : 'normal'};
 
       &:hover {
         color: #fff;

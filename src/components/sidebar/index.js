@@ -4,7 +4,7 @@ import { Container, NewPlaylist, Nav } from './styles';
 
 import AddPlaylistIcon from '../../assets/imges/add_playlist.svg'
 
-export default class componentName extends Component {
+export default class Sidebar extends Component {
   render() {
     return (
       <Container>

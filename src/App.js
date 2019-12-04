@@ -2,14 +2,18 @@ import React from 'react';
 
 import GlobalStyle from './styles/global';
 
-import Sidebar from './components/sidebar'
+import Sidebar from './components/sidebar';
+import Player from './components/player';
 
+import { Wrapper, Container } from './styles/components';
 
 const App = () => (
-  <div>
+  <Wrapper>
     <GlobalStyle />
-    <Sidebar />
-   </div>
+    <Container>
+      <Sidebar />
+    </Container>
+  </Wrapper>
 )
 
 export default App;
