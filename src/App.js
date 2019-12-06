@@ -13,6 +13,7 @@ const App = () => (
     <Container>
       <Sidebar />
     </Container>
+    <Player />
   </Wrapper>
 )
 
