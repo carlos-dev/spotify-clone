@@ -1,10 +1,18 @@
 import React, { Component } from 'react';
 
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { Creators as PlaylistsActions } from '../../store/ducks/playlists'
+
 import { Container, NewPlaylist, Nav } from './styles';
 
 import AddPlaylistIcon from '../../assets/imges/add_playlist.svg'
 
 export default class Sidebar extends Component {
+  componentDidMount() {
+
+  }
+
   render() {
     return (
       <Container>
@@ -66,3 +74,7 @@ export default class Sidebar extends Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+
+})
