@@ -1,6 +1,7 @@
-import styled from 'styled-components';
+import styled from "styled-components";
+import { Link } from "react-router-dom";
 
-import { Link } from 'react-router-dom';
+import { Spinner } from "../../components/loading/styles";
 
 export const Container = styled.div`
   flex: 1;
@@ -11,12 +12,16 @@ export const Container = styled.div`
 
 export const Title = styled.h1`
   font-size: 48px;
-`;
 
+  ${Spinner} {
+    height: 24px;
+  }
+`;
 
 export const List = styled.div`
   margin-top: 20px;
   display: flex;
+  flex-wrap: wrap;
 `;
 
 export const Playlist = styled(Link)`
@@ -32,7 +37,7 @@ export const Playlist = styled(Link)`
 
   img {
     height: 250x;
-    transition: .2s all ease;
+    transition: 0.2s all ease;
   }
 
   strong {
@@ -51,4 +56,9 @@ export const Playlist = styled(Link)`
   &:hover img {
     opacity: 0.4;
   }
+`;
+
+export const Thumb = styled.img`
+  max-height: 250px;
+  height: 100%;
 `;
