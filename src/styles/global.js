@@ -1,8 +1,8 @@
-import { createGlobalStyle  } from 'styled-components';
+import { createGlobalStyle } from "styled-components";
 
-import 'rc-slider/assets/index.css';
+import "rc-slider/assets/index.css";
 
- const GlobalStyle = createGlobalStyle`
+const GlobalStyle = createGlobalStyle`
   * {
     margin: 0;
     padding: 0;
@@ -20,6 +20,10 @@ import 'rc-slider/assets/index.css';
     background: #181818;
     font-family: 'Montserrat', sans-serif;
     color: #fff;
+  }
+
+  button {
+    cursor: pointer;
   }
 `;
 
