@@ -1,9 +1,11 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import Slider from "rc-slider";
 import Sound from "react-sound";
 import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
 import PropTypes from "prop-types";
+import { bindActionCreators } from "redux";
+
+import { Creators as PlayerActions } from "../../store/ducks/player";
 
 import {
   Container,
@@ -12,7 +14,7 @@ import {
   Progress,
   Controls,
   Time,
-  ProgressSlider
+  ProgressSlider,
 } from "./styles";
 
 import VolumeIcon from "../../assets/imges/volume.svg";
@@ -25,26 +27,30 @@ import RepeatIcon from "../../assets/imges/repeat.svg";
 
 class Player extends Component {
   render() {
-    const { player } = this.props;
+    const { player, play, pause } = this.props;
+
+    console.log(this.props);
+
     return (
       <Container>
         {!!player.currentSong && (
           <Sound url={player.currentSong.file} playStatus={player.status} />
         )}
-        {/* <Sound
-          url=""
-        /> */}
 
         <Current>
-          <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWpz9c7qrYEluBY8OvRW4oRln_wgyhrvgo5gab9fVoGDCvwQ9t&s"
-            alt="musica"
-          />
+          {!!player.currentSong && (
+            <Fragment>
+              <img
+                src={player.currentSong.thumbnail}
+                alt={player.currentSong.title}
+              />
 
-          <div>
-            <span>Times like these</span>
-            <small>Foo fighters</small>
-          </div>
+              <div>
+                <span>{player.currentSong.title}</span>
+                <small>{player.currentSong.author}</small>
+              </div>
+            </Fragment>
+          )}
         </Current>
 
         <Progress>
@@ -55,9 +61,15 @@ class Player extends Component {
             <button>
               <img src={BackwardIcon} alt="Bakckward" />
             </button>
-            <button>
-              <img src={PlayIcon} alt="Play" />
-            </button>
+            {!!player.currentSong && player.status === Sound.status.PLAYING ? (
+              <button onClick={pause}>
+                <img src={PauseIcon} alt="Pause" />
+              </button>
+            ) : (
+              <button onClick={play}>
+                <img src={PlayIcon} alt="Play" />
+              </button>
+            )}
             <button>
               <img src={ForwardIcon} alt="Forward" />
             </button>
@@ -96,14 +108,19 @@ class Player extends Component {
 Player.propTypes = {
   player: PropTypes.shape({
     currentSong: PropTypes.shape({
-      file: PropTypes.string
+      file: PropTypes.string,
     }),
-    status: PropTypes.string
-  }).isRequired
+    status: PropTypes.string,
+  }).isRequired,
+  play: PropTypes.func.isRequired,
+  pause: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = state => ({
-  player: state.player
+const mapStateToProps = (state) => ({
+  player: state.player,
 });
 
-export default connect(mapStateToProps)(Player);
+const mapDispatchToProps = (dispatch) =>
+  bindActionCreators(PlayerActions, dispatch);
+
+export default connect(mapStateToProps, mapDispatchToProps)(Player);
