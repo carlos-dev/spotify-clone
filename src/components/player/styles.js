@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Container = styled.div`
   height: 72px;
@@ -10,6 +10,7 @@ export const Container = styled.div`
 `;
 
 export const Current = styled.div`
+  width: 220px;
   display: flex;
   align-items: center;
 
@@ -69,7 +70,6 @@ export const ProgressSlider = styled.div`
   margin: 0 5px;
 `;
 
-
 export const Volume = styled.div`
   display: flex;
   align-items: center;
@@ -79,7 +79,4 @@ export const Volume = styled.div`
   img {
     margin-right: 5px;
   }
-`
-
-
-
+`;

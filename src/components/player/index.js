@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import Slider from "rc-slider";
 import Sound from "react-sound";
 import { connect } from "react-redux";
@@ -39,7 +39,7 @@ class Player extends Component {
 
         <Current>
           {!!player.currentSong && (
-            <Fragment>
+            <>
               <img
                 src={player.currentSong.thumbnail}
                 alt={player.currentSong.title}
@@ -49,7 +49,7 @@ class Player extends Component {
                 <span>{player.currentSong.title}</span>
                 <small>{player.currentSong.author}</small>
               </div>
-            </Fragment>
+            </>
           )}
         </Current>
 
@@ -108,6 +108,9 @@ class Player extends Component {
 Player.propTypes = {
   player: PropTypes.shape({
     currentSong: PropTypes.shape({
+      thumbnail: PropTypes.string,
+      title: PropTypes.string,
+      author: PropTypes.string,
       file: PropTypes.string,
     }),
     status: PropTypes.string,
